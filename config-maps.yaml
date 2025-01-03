@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: common-cm
+data:
+  EUREKA_SERVER_ADDRESS: http://eureka-0.eureka-svc:18763/eureka
+  CONFIG_SERVER_URL: http://config-server-svc/
+  ZIPKIN_SERVER_URL: http://localhost:9094
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-cm
+data:
+  DB_HOST: jdbc:mysql://mysqlmysql-0.mysql-svc.default.svc.cluster.local:3306/db_order_service
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: product-cm
+data:
+  DB_HOST: jdbc:mysql://mysqlmysql-0.mysql-svc.default.svc.cluster.local:3306/product_db
+
+

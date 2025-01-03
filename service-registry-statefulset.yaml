@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: eureka
+spec:
+  selector:
+    matchLabels:
+      app: eureka
+  serviceName: eureka-svc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: eureka
+    spec:
+      containers:
+      - name: eureka-pod
+        image: kreys326/service-registry
+        ports:
+        - containerPort: 10092
+          name: eureka-container
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-svc
+spec:
+  clusterIP: None
+  selector:
+    app: eureka
+  ports:
+  - port: 10092
+    name: eureka
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: eureka
+  ports:
+  - port: 80
+    targetPort: 10092
+
+
