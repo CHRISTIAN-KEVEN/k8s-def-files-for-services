@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: product-service-app
-        image: kreys326/product-service
+        image: kreys326/product-service:v1
         resources:
           limits:
             memory: "128Mi"

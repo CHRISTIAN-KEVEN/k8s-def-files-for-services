@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: order-service-app
-        image: kreys326/order-service
+        image: kreys326/order-service:v1
         ports:
         - containerPort: 10097
         env:

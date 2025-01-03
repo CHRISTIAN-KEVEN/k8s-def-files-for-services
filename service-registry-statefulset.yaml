@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: eureka-pod
-        image: kreys326/service-registry
+        image: kreys326/service-registry:v1
         ports:
         - containerPort: 10092
           name: eureka-container

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: gateway-service-app
-        image: kreys326/api-gateway
+        image: kreys326/api-gateway:v1
         ports:
         - containerPort: 10090
         env:
